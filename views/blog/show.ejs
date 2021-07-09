@@ -27,14 +27,18 @@
             </div>
         </div>
         <div class="col-6">
-            <form action="/blog/<%=blogs._id%>/comment" method="post">
-                <textarea name="comment[text]" id="text" cols="30" rows="10" class="form-control"></textarea>
-                <button class="btn btn-outline-success">Comment</button>
-            </form>
             <div>
-                <form action="/blog/<%=blogs._id%>/comment/<%=comment.comId%>?_method=DELETE" method="POST">
+                <form action="/blog/<%=blogs._id%>/comment" method="post">
+                    <textarea name="comment[text]" id="text" cols="30" rows="10" class="form-control"></textarea>
+                    <button class="btn btn-outline-success">Comment</button>
+                </form>
+            </div>
+           
+            <div>
+                <form action="/blog/<%=blogs._id%>/comment/<%=blogs.comment._comId%>?_method=DELETE" method="POST">
                 
                     <button class="btn btn-danger">Delete</button>
+
                 </form>
             </div>
 
