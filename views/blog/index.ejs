@@ -1,0 +1,28 @@
+<% layout("layouts/boilerplate.ejs")%> 
+
+    
+<div class="container">
+    <div class="row flex-wrap">
+<%for(let blog of blogs){  %> 
+
+    
+        <div class=" col-4">
+            <div class="mb-3 ">
+                <div class="card text-center" style="width: 18rem;">
+                <img src="https://images.unsplash.com/photo-1542435503-956c469947f6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1934&q=80" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><%=blog.title%></h5>
+                        <p class="card-text"><%=blog.body.substring(0, 50)%>...</p>
+                        <a href="/blog/<%=blog._id%>" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+   
+    
+            
+<%}%> 
+    </div>
+</div>
+ 
+     

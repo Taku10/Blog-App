@@ -1,0 +1,40 @@
+<% layout("layouts/boilerplate.ejs")%> 
+
+
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <h1 class="text-center">New Blog</h1>
+            <form action="/blog" method="post">
+                <div class="mb-3">
+                    <label for="title" class="form-label fw-bold " >Title:</label>
+                    <input type="text" class="form-control"  name="blog[title]" id="title" size="4">
+                </div>
+                
+                <div class="mb-3">
+                    <label for="category" class="form-label fw-bold ">Category:</label>
+                    <select class="form-select" name =  "blog[category]" id = "category" width="200px"> 
+                         <% for(let category of categories){ %> 
+                            <option value = "<%=category%>"><%=category%> </option>
+                
+                            <% } %> 
+                    </select>
+                </div>
+                
+                <div class="mb-3">
+                    <label class ="form-label fw-bold" for="body"  >Body:</label>
+                    <textarea class="form-control" name="blog[body]" id="body" cols="40" rows="4"></textarea>
+                </div>
+                
+            
+                <button class="btn btn-success">Submit</button>
+            
+            </form>
+        </div>
+        
+        
+    </div>
+    
+    
+</div>

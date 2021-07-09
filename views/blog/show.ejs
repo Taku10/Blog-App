@@ -1,0 +1,49 @@
+<% layout("layouts/boilerplate.ejs")%> 
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header float-none text-muted">
+                      <%=blogs.category%>
+                </div>
+                <div class="card-body text-center">
+                    <h2 class="card-title"><%=blogs.title%></h2>
+                    <p class="card-text"><%=blogs.body%></p>
+                  
+                    <div class="card-footer text-muted mb-0">
+                        2 days ago
+                     </div>
+                </div>
+            </div>
+            
+              <div class="d-flex justify-content-center mt-3">
+                <a class="btn btn-success  " href="/blog/<%=blogs._id%>/edit">Edit</a>
+            
+                <form action="/blog/<%=blogs._id%>?_method=DELETE" method = "POST">
+                    <button class="btn btn-danger ms-5">Delete</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-6">
+            <form action="/blog/<%=blogs._id%>/comment" method="post">
+                <textarea name="comment[text]" id="text" cols="30" rows="10" class="form-control"></textarea>
+                <button class="btn btn-outline-success">Comment</button>
+            </form>
+            <div>
+                <form action="/blog/<%=blogs._id%>/comment/<%=comment.comId%>?_method=DELETE" method="POST">
+                
+                    <button class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+
+        </div>
+        
+    </div>
+    
+</div>
+    
+
+
+  
