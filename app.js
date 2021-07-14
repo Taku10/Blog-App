@@ -110,6 +110,7 @@ app.post("/blog/:id/comment", async(req, res)=>{
     const blog = await Blog.findById(id)
     const comment = new Comment(req.body.comment)
     blog.comment.push(comment)
+    console.log(comment)
     await blog.save();
     await comment.save();
     res.redirect(`/blog/${id}`)
@@ -126,3 +127,4 @@ app.delete("/blog/:id/comment/:comId", async(req, res)=>{
 app.listen(3000, function(){
     console.log("Server has Started")
 })
+

@@ -27,21 +27,32 @@
             </div>
         </div>
         <div class="col-6">
-            <div>
-                <form action="/blog/<%=blogs._id%>/comment" method="post">
-                    <textarea name="comment[text]" id="text" cols="30" rows="10" class="form-control"></textarea>
-                    <button class="btn btn-outline-success">Comment</button>
-                </form>
-            </div>
-           
-            <div>
-                <form action="/blog/<%=blogs._id%>/comment/<%=blogs.comment._comId%>?_method=DELETE" method="POST">
-                
-                    <button class="btn btn-danger">Delete</button>
+            
+            <form action="/blog/<%=blogs._id%>/comment" method="post">
+                <textarea name="comment[text]" id="text" cols="25" rows="10" class="form-control"></textarea>
+                <button class="btn btn-primary mt-3">Comment</button>
+            </form>
+            
+                <%if(blogs.comment){%> 
+                <%for(let comment of blogs.comment){%> 
+            <div class="card mt-3">
+                <div class="card-header">
+                  
+                </div>
+                <div class="card-body">
+                  <blockquote class="blockquote mb-0">
+                    <p><%=comment.text%> </p>
+                    <footer class="blockquote-footer">Author</footer>
+                  </blockquote>
+                </div>
 
+                <form action="/blog/<%=blogs._id%>/comment/<%=comment._id%>?_method=DELETE" method="POST">
+                    <button class="btn btn-danger btn-sm">Delete</button>
                 </form>
-            </div>
-
+              </div>
+              <% } %> 
+              <% } %> 
+              
         </div>
         
     </div>
